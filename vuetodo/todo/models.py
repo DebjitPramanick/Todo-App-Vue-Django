@@ -4,7 +4,7 @@ from django.db import models
 
 class Task(models.Model):
     TODO = 'Todo'
-    DONE = 'done'
+    DONE = 'Done'
 
     STATUS_CHOICES = (
         (TODO, 'Todo'),
