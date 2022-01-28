@@ -1,6 +1,7 @@
 <template>
   <div class="list">
     <AddTask v-if="show === true" />
+    <Stat />
     <SearchBar @search="handleSeacrh" />
 
     <div class="tasks">
@@ -28,11 +29,12 @@ import { ref, onBeforeMount } from "vue";
 import AddTask from "./AddTask.vue";
 import { getInCompleteTasks, getCompleteTasks } from "./utils.js";
 import SearchBar from "./SearchBar.vue";
+import Stat from './Stat.vue';
 
 export default {
   name: "List",
   props: ["show"],
-  components: { Task, AddTask, SearchBar },
+  components: { Task, AddTask, SearchBar, Stat },
   setup() {
     const tasks = ref([]);
     const tasksStore = ref([]);
@@ -74,7 +76,7 @@ export default {
   height: calc(100% - 84px);
 }
 .tasks {
-  height: calc(100% - 60px);
+  height: calc(100% - 210px);
   overflow-y: scroll;
 }
 

@@ -5,7 +5,6 @@
         <h3>Daily Todo App</h3>
         <button @click="addNew = !addNew">Add Task</button>
       </div>
-
       <List :show='addNew'/>
     </div>
   </div>
