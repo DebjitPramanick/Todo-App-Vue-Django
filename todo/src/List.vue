@@ -1,6 +1,7 @@
 <template>
   <div class="list">
     <AddTask v-if="show === true"/>
+    <SearchBar @search="handleSeacrh"/>
     <h3>Incomplete Tasks({{getInCompleteTasks(tasks).length}})</h3>
     <Task v-for="task in getInCompleteTasks(tasks)" :key="task.id" :task="task" />
 
@@ -15,13 +16,16 @@ import axios from "axios";
 import { ref, onBeforeMount } from "vue";
 import AddTask from "./AddTask.vue";
 import {getInCompleteTasks, getCompleteTasks} from "./utils.js"
+import SearchBar from './SearchBar.vue';
 
 export default {
   name: "List",
   props: ["show"],
-  components: { Task, AddTask },
+  components: { Task, AddTask, SearchBar },
   setup() {
     const tasks = ref([]);
+    const tasksStore = ref([])
+
     onBeforeMount(() => {
       axios
         .get("http://127.0.0.1:8000/tasks/", {
@@ -32,12 +36,23 @@ export default {
         })
         .then((res) => {
           tasks.value = res.data;
+          tasksStore.value = res.data
         });
     });
+
+    const handleSeacrh = (val) => {
+      let res = [...tasksStore.value]
+      res = res.filter(n => {
+        return n.description.toLowerCase().includes(val.toLowerCase())
+      })
+      tasks.value = res
+    }
+
     return {
       tasks,
       getCompleteTasks,
-      getInCompleteTasks
+      getInCompleteTasks,
+      handleSeacrh
     };
   },
 };
