@@ -33,9 +33,7 @@ export default {
             },
           }
         )
-        .then((res) => {
-          alert("Task updated. Refresh page.");
-          console.log(res);
+        .then(() => {
           window.location.reload();
         });
     };
@@ -53,10 +51,14 @@ export default {
   display: flex;
   align-items: center;
   padding: 16px;
-  margin: 0 10px;
+  margin: 0 16px;
+  cursor: pointer;
 }
 .task:nth-child(even) {
   background: #d1d1d1;
+}
+input{
+  cursor: pointer;
 }
 .label {
   margin: 0 0 0 16px;

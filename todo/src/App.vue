@@ -2,7 +2,7 @@
   <div class="page">
     <div class="container">
       <div class="header">
-        <h3>Todo App</h3>
+        <h3>Daily Todo App</h3>
         <button @click="addNew = !addNew">Add Task</button>
       </div>
 
@@ -38,12 +38,14 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: calc(100vh - 16px);
 }
 .container {
   height: calc(100vh - 250px);
   width: calc(100vh - 250px);
   box-shadow:  0 0 10px #c0c0c0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .header {
@@ -62,5 +64,25 @@ button{
   outline: 0;
   border: 0;
   background: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #dadada; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #858585; 
 }
 </style>

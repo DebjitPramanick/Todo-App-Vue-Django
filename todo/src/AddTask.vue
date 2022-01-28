@@ -33,9 +33,7 @@ export default {
             password: "1234",
           },
         }
-      ).then(res => {
-          alert("Task added. Refresh page.")
-          console.log(res)
+      ).then(() => {
           window.location.reload()
       })
     };
