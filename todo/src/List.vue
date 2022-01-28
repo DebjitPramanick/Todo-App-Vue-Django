@@ -94,12 +94,12 @@ h3 {
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #dadada; 
+  background: #2c2b2b; 
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #858585; 
+  background: #575658; 
 }
 </style>

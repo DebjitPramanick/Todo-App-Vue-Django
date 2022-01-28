@@ -20,11 +20,4 @@ export default {
     display: flex;
     justify-content: flex-end;
 }
-input {
-  padding: 8px 10px;
-  font-size: 16px;
-  outline: 0;
-  border: 1px solid black;
-  border-radius: 4px;
-}
 </style>

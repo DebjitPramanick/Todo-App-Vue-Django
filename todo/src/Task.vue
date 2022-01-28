@@ -53,9 +53,10 @@ export default {
   padding: 16px;
   margin: 0 16px;
   cursor: pointer;
+  border-radius: 6px;
 }
 .task:nth-child(even) {
-  background: #d1d1d1;
+  background: #3b4152;
 }
 input{
   cursor: pointer;

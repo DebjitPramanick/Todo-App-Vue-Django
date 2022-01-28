@@ -50,12 +50,11 @@ export default {
 .add {
   display: flex;
   align-items: center;
-  padding: 16px 0;
-  margin: 0 10px;
+  padding: 16px;
 }
 
 .add input {
-  padding: 8px 10px;
+  padding: 9px 10px;
   font-size: 16px;
   width: calc(100% - 80px);
   outline: 0;
@@ -69,7 +68,7 @@ button {
   width: 60px;
   padding: 9px 10px;
   font-size: 16px;
-  background: #00c795;
+  background-image: linear-gradient(45deg, #8163e0, #103e92);
   outline: 0;
   border: 0;
   color: #fff;
