@@ -1,12 +1,23 @@
 <template>
   <div class="list">
-    <AddTask v-if="show === true"/>
-    <SearchBar @search="handleSeacrh"/>
-    <h3>Incomplete Tasks({{getInCompleteTasks(tasks).length}})</h3>
-    <Task v-for="task in getInCompleteTasks(tasks)" :key="task.id" :task="task" />
+    <AddTask v-if="show === true" />
+    <SearchBar @search="handleSeacrh" />
 
-    <h3>Complete Tasks ({{getCompleteTasks(tasks).length}})</h3>
-    <Task v-for="task in getCompleteTasks(tasks)" :key="task.id" :task="task" />
+    <div class="tasks">
+      <h3>Incomplete Tasks({{ getInCompleteTasks(tasks).length }})</h3>
+      <Task
+        v-for="task in getInCompleteTasks(tasks)"
+        :key="task.id"
+        :task="task"
+      />
+
+      <h3>Complete Tasks ({{ getCompleteTasks(tasks).length }})</h3>
+      <Task
+        v-for="task in getCompleteTasks(tasks)"
+        :key="task.id"
+        :task="task"
+      />
+    </div>
   </div>
 </template>
 
@@ -15,8 +26,8 @@ import Task from "./Task.vue";
 import axios from "axios";
 import { ref, onBeforeMount } from "vue";
 import AddTask from "./AddTask.vue";
-import {getInCompleteTasks, getCompleteTasks} from "./utils.js"
-import SearchBar from './SearchBar.vue';
+import { getInCompleteTasks, getCompleteTasks } from "./utils.js";
+import SearchBar from "./SearchBar.vue";
 
 export default {
   name: "List",
@@ -24,7 +35,7 @@ export default {
   components: { Task, AddTask, SearchBar },
   setup() {
     const tasks = ref([]);
-    const tasksStore = ref([])
+    const tasksStore = ref([]);
 
     onBeforeMount(() => {
       axios
@@ -36,36 +47,59 @@ export default {
         })
         .then((res) => {
           tasks.value = res.data;
-          tasksStore.value = res.data
+          tasksStore.value = res.data;
         });
     });
 
     const handleSeacrh = (val) => {
-      let res = [...tasksStore.value]
-      res = res.filter(n => {
-        return n.description.toLowerCase().includes(val.toLowerCase())
-      })
-      tasks.value = res
-    }
+      let res = [...tasksStore.value];
+      res = res.filter((n) => {
+        return n.description.toLowerCase().includes(val.toLowerCase());
+      });
+      tasks.value = res;
+    };
 
     return {
       tasks,
       getCompleteTasks,
       getInCompleteTasks,
-      handleSeacrh
+      handleSeacrh,
     };
   },
 };
 </script>
 
 <style scoped>
-.list {
-  height: calc(100% - 54px);
+.list{
+  height: calc(100% - 84px);
+}
+.tasks {
+  height: calc(100% - 60px);
   overflow-y: scroll;
 }
 
-h3{
+h3 {
   margin: 20px 16px 10px 16px;
   color: #929292;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #dadada; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #858585; 
 }
 </style>
