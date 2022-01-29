@@ -6,7 +6,7 @@
       :value="description.value"
       @change="onChange($event)"
     />
-    <button @click="addTask">Add</button>
+    <button @click="addTask"><p>+</p></button>
   </div>
 </template>
 
@@ -50,28 +50,40 @@ export default {
 .add {
   display: flex;
   align-items: center;
-  padding: 16px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #0d0e1d88;
 }
 
 .add input {
-  padding: 9px 10px;
+  padding:0;
   font-size: 16px;
-  width: calc(100% - 80px);
+  width: 0;
   outline: 0;
-  border: 1px solid black;
+  border: 0;
   border-radius: 4px;
+  margin-right: 0;
+  background: transparent;
+  transition: 0.5s;
+}
+
+button:hover .add input{
+  width: calc(100% - 60px);
+  padding: 9px 10px;
   margin-right: 16px;
 }
 
 button {
   border-radius: 4px;
-  width: 60px;
+  width: 40px;
   padding: 9px 10px;
-  font-size: 16px;
-  background-image: linear-gradient(45deg, #8163e0, #103e92);
+  background-image: linear-gradient(45deg, #8063e052, #103e9260);
   outline: 0;
   border: 0;
   color: #fff;
   cursor: pointer;
+}
+button p{
+  transform: scale(2);
 }
 </style>

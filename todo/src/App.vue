@@ -3,7 +3,8 @@
     <div class="container">
       <div class="header">
         <h3>Daily Todo App</h3>
-        <button @click="addNew = !addNew">Add Task</button>
+        <!-- <button @click="addNew = !addNew">Add Task</button> -->
+        <AddTask />
       </div>
       <List :show='addNew'/>
     </div>
@@ -13,8 +14,9 @@
 <script>
 import List from './List.vue';
 import {ref} from 'vue'
+import AddTask from './AddTask.vue';
 export default {
-  components: { List },
+  components: { List, AddTask },
   name: "App",
   setup(){
     const addNew = ref(false)
@@ -51,6 +53,13 @@ body{
   border-radius: 10px;
   overflow: hidden;
   background-image: linear-gradient(180deg, #353a50, #000);
+}
+
+@media (max-width: 576px) {
+  .container{
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .header {

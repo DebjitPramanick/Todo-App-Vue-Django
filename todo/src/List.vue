@@ -80,6 +80,10 @@ export default {
   overflow-y: scroll;
 }
 
+@media (max-width: 576px) {
+  
+}
+
 h3 {
   margin: 20px 16px 10px 16px;
   color: #929292;
