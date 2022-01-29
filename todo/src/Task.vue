@@ -21,7 +21,7 @@ export default {
       const val = e.target.checked;
       axios
         .put(
-          "http://127.0.0.1:8000/tasks/" + props.task.id + "/all/",
+          "https://todoing-life.herokuapp.com/tasks/" + props.task.id + "/all/",
           {
             description: props.task.description,
             status: val ? "Done" : "Todo",
@@ -43,7 +43,7 @@ export default {
       console.log(val)
       axios
         .delete(
-          "http://127.0.0.1:8000/tasks/" + props.task.id + "/",
+          "https://todoing-life.herokuapp.com/tasks/" + props.task.id + "/",
           {
             auth: {
               username: "debjit",

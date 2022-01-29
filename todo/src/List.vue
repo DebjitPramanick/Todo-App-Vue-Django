@@ -38,7 +38,7 @@ export default {
 
     onBeforeMount(() => {
       axios
-        .get("http://127.0.0.1:8000/tasks/", {
+        .get("https://todoing-life.herokuapp.com/tasks/", {
           auth: {
             username: "debjit",
             password: "1234",

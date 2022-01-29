@@ -22,6 +22,7 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'tasks', TaskViewSet)
+router.register('/', TaskViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls))
