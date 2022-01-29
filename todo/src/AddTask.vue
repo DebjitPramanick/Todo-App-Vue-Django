@@ -67,9 +67,15 @@ export default {
   transition: 0.5s;
 }
 
-button:hover .add input{
-  width: calc(100% - 60px);
-  padding: 9px 10px;
+.add:hover input{
+  width: 180px;
+  padding: 2px 10px;
+  margin-right: 16px;
+}
+
+input:focus{
+  width: 180px;
+  padding: 2px 10px;
   margin-right: 16px;
 }
 
