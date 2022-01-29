@@ -46,10 +46,6 @@ export default {
         .delete(
           "http://127.0.0.1:8000/tasks/" + props.task.id + "/",
           {
-            description: props.task.description,
-            status: val ? "Done" : "Todo",
-          },
-          {
             auth: {
               username: "debjit",
               password: "1234",
