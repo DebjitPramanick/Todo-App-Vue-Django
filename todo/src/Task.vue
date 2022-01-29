@@ -21,7 +21,7 @@ export default {
       const val = e.target.checked;
       axios
         .put(
-          "https://todoing-life.herokuapp.com/tasks/" + props.task.id + "/all/",
+          "https://todoing-life.herokuapp.com/tasks/" + props.task.id + "/",
           {
             description: props.task.description,
             status: val ? "Done" : "Todo",
@@ -87,6 +87,10 @@ input{
   width: 80%;
   font-weight: 600;
   font-size: 18px;
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .task button{
   pointer-events: none;
