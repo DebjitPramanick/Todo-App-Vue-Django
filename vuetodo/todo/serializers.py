@@ -4,4 +4,5 @@ from .models import Task
 class TaskSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Task
-        fields = ('id', 'description', 'status')
+        fields = ('id', 'description', 'status', 'created' )
+        extra_kwargs = {"created": {"required": False, "allow_null": False}}

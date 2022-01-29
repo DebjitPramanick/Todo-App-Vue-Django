@@ -19,10 +19,9 @@ export default {
 
     const update = (e) => {
       const val = e.target.checked;
-      console.log(val);
       axios
         .put(
-          "http://127.0.0.1:8000/tasks/" + props.task.id + "/",
+          "http://127.0.0.1:8000/tasks/" + props.task.id + "/all/",
           {
             description: props.task.description,
             status: val ? "Done" : "Todo",

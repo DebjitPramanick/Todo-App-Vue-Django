@@ -1,3 +1,4 @@
+from datetime import date
 from django.shortcuts import render
 from rest_framework import authentication
 from rest_framework.decorators import authentication_classes, permission_classes
@@ -12,7 +13,7 @@ from rest_framework.permissions import IsAuthenticated
 class TaskViewSet(viewsets.ModelViewSet):
     authentication_classes = (BasicAuthentication, )
     permission_classes = (IsAuthenticated, )
-    queryset = Task.objects.all()
+    queryset = Task.objects.filter(created=date.today())
     serializer_class = TaskSerializer
 
 
