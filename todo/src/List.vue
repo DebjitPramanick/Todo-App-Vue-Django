@@ -1,7 +1,7 @@
 <template>
   <div class="list">
     <AddTask v-if="show === true" />
-    <Stat />
+    <Stat :tasks="tasks"/>
     <SearchBar @search="handleSeacrh" />
 
     <div class="tasks">

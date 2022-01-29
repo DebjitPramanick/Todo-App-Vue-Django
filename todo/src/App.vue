@@ -47,7 +47,7 @@ body{
   height: 100vh;
 }
 .container {
-  height: calc(100vh - 250px);
+  height: calc(100vh - 100px);
   width: calc(100vh - 250px);
   box-shadow:  0 0 10px #0f0f0f;
   border-radius: 10px;
