@@ -3,27 +3,20 @@
     <div class="container">
       <div class="header">
         <h3>Daily Todo App</h3>
-        <!-- <button @click="addNew = !addNew">Add Task</button> -->
         <AddTask />
       </div>
-      <List :show='addNew'/>
+      <List />
     </div>
   </div>
 </template>
 
 <script>
 import List from './List.vue';
-import {ref} from 'vue'
 import AddTask from './AddTask.vue';
 export default {
   components: { List, AddTask },
   name: "App",
   setup(){
-    const addNew = ref(false)
-    console.log(addNew.value)
-    return {
-      addNew
-    }
   }
 };
 </script>

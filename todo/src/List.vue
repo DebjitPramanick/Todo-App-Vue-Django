@@ -1,6 +1,5 @@
 <template>
   <div class="list">
-    <AddTask v-if="show === true" />
     <Stat :tasks="tasks"/>
     <SearchBar @search="handleSeacrh" />
 
@@ -26,15 +25,13 @@
 import Task from "./Task.vue";
 import axios from "axios";
 import { ref, onBeforeMount } from "vue";
-import AddTask from "./AddTask.vue";
 import { getInCompleteTasks, getCompleteTasks } from "./utils.js";
 import SearchBar from "./SearchBar.vue";
 import Stat from './Stat.vue';
 
 export default {
   name: "List",
-  props: ["show"],
-  components: { Task, AddTask, SearchBar, Stat },
+  components: { Task, SearchBar, Stat },
   setup() {
     const tasks = ref([]);
     const tasksStore = ref([]);
